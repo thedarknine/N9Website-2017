@@ -1,0 +1,31 @@
+
+<ul id="nav-mobile" class="side-nav">
+    {% for page in listPages %}
+        {% if page.route != "" %}
+            <li class="{% if activePage == page.label %}active{% else %}hvr-forward{% endif %} w100">
+                <a href="{{basePath}}/{{page.route}}"><i class="material-icons light-green-text text-lighten-1 right">{{page.icon}}</i> {{page.name}}</a>
+            </li>
+        {% endif %}
+    {% endfor %}
+</ul>
+
+<div class="navbar-fixed">
+    <nav>
+        <div class="nav-wrapper z-depth-2">
+            <div class="container-fluid">
+                <a href="{{absolute_url(app.request.baseUrl)}}" class="brand-logo right"><img src="{{basePath}}/img/caroline-noyer.png" class="responsive-img" alt="Caroline Noyer"></a>
+
+                <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+                <ul class="left hide-on-med-and-down">
+                    {% for page in listPages %}
+                        {% if page.route != "" %}
+                            <li class="{% if activePage == page.label %}active arrow_box{% else %}hvr-underline-from-center{% endif %}">
+                                <a href="{{basePath}}/{{page.route}}" class="{% if activePage == page.label %}light-green-text{% else %}hvr-grow-shadow{% endif %}">{{page.name}}</a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>

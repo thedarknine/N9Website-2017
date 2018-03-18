@@ -1,0 +1,827 @@
+// Google Fonts
+@import url(https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css)
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans|Lato|Open+Sans|Raleway')
+@import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css')
+@import hover-min
+@import animations
+@import main
+    
+$font-lato: 'Lato', sans-serif !important
+$font-josefin: 'Josefin Sans', sans-serif !important
+$font-raleway: 'Raleway', sans-serif !important
+
+// Sizes for media queries
+$break-xsmall: 320px
+$break-small: 640px
+$break-medium: 800px
+$break-large: 1024px
+
+// fonts colors
+$brown-darken-3-color: #4e342e
+$brown-darken-2-color: #5d4037
+$brown-darken-1-color: #6d4c41
+$brown-lighten-3-color: #bcaaa4
+$brown-lighten-4-color: #d7ccc8
+$brown-lighten-5-color: #efebe9
+$light-green-darken-2-color: #689f38
+$light-green-darken-1-color: #7cb342
+$light-green-color: #8bc34a
+$grey-lighten-2-color: #e0e0e0
+$grey-lighten-3-color: #eeeeee
+$grey-lighten-4-color: #f5f5f5
+
+$red-darken-3-color: #c62828
+
+// background colors
+$grey-lighten-1-background: #bdbdbd
+$grey-lighten-4-background: #f5f5f5
+
+$brown-header1-color: #3d2c20
+$brown-header2-color: #634d3e
+
+
+html,
+body
+    font-family: $font-lato
+    color: $brown-darken-2-color
+    display: flex
+    min-height: 100vh
+    flex-direction: column
+
+    
+/* Header / Navigation ********************************************************************** */
+
+nav 
+    background: $brown-header1-color !important
+    background: -moz-linear-gradient(top, $brown-header1-color 10%, $brown-header2-color 100%) !important
+    background: -webkit-linear-gradient(top, $brown-header1-color 10%,$brown-header2-color 100%) !important
+    background: linear-gradient(to bottom, $brown-header1-color 10%,$brown-header2-color 100%) !important
+    
+    a
+        color: $brown-lighten-5-color !important
+        
+    a:hover
+        color: $light-green-darken-2-color !important
+        text-decoration: none
+    
+    .active 
+        border-bottom: 2px solid $light-green-color
+    
+    .active::before 
+        position: absolute
+        border-bottom: 2px solid $light-green-color
+        left: 0
+        right: 0
+        top: 0
+        bottom: 0
+        content: ""
+    
+    .hvr-underline-from-center:before
+        background: $light-green-darken-2-color
+    
+    .brand-logo.right
+        right: 0px
+    
+    .brand-logo
+        @media screen and (max-width: $break-small)
+            width: 75%
+            right: 0px
+        @media screen and (max-width: $break-xsmall)
+            width: 75%
+            right: 0px
+
+#nav-mobile 
+    padding-top: 20px
+    
+    li a
+        color: $light-green-color !important
+
+.nav-list
+    list-style: none
+
+    li 
+        list-style: none
+        display: inline-block
+        padding-left: 20px
+
+.arrow_box 
+	position: relative
+
+.arrow_box::after
+	top: 100%
+	left: 50%
+	border: solid transparent
+	content: " "
+	height: 0
+	width: 0
+	position: absolute
+	pointer-events: none
+	border-color: rgba(139, 195, 74, 0)
+	border-top-color: $light-green-color
+	border-width: 10px
+	margin-left: -10px
+
+
+/* Global *********************************************************************************** */
+
+.divider
+    background-color: $grey-lighten-1-background
+
+h1 
+    font-family: $font-josefin
+    font-weight: 400 !important
+    font-size: 2.8em
+//    font-size: 28pt
+
+h2,
+h3,
+h4,
+h5
+    font-family: $font-raleway
+    font-style: normal
+
+h2
+//	font-size: 26px
+//	font-weight: 700
+//    margin-top: 10px !important
+
+h3
+//	font-size: 24px
+//	font-weight: 700
+//    margin-top: 10px !important
+
+h4
+    color: #4b830d !important
+//	font-weight: 600
+//    font-size: 18pt
+
+h5
+    color: $light-green-darken-2-color
+    font-weight: 600
+    font-size: 1.5em
+//    font-size: 16pt
+
+b, 
+strong 
+	font-style: normal
+	font-variant: normal
+	font-weight: 800
+
+main
+    flex: 1 0 auto
+    margin: 0
+    padding: 0
+
+a,
+a.default,
+a.btn-flat,
+a.btn-nine,
+button.btn-flat,
+    color: $light-green-darken-2-color !important
+
+a:hover
+    text-decoration: underline
+
+a.btn:not(.btn-flat)
+    color: $brown-lighten-5-color
+
+a.btn:hover,
+a.btn-flat:hover,
+a.btn-nine:hover,
+button.btn-flat:hover
+    text-decoration: none
+    background-color: $brown-lighten-3-color !important
+    color: $brown-lighten-5-color !important
+
+a.btn-small
+    height: 30px
+    width: 30px
+
+.image-btn
+    border: 1px solid #e0e0e0
+    border-radius: 8px
+
+
+.btn.disabled,
+.btn:disabled,
+.btn[disabled]
+    pointer-events: auto !important
+    cursor: not-allowed
+    filter: alpha(opacity=65)
+    -webkit-box-shadow: none
+    box-shadow: none
+    opacity: .65
+
+
+.even 
+    background-color: $grey-lighten-2-color
+
+.odd
+    background-color: $grey-lighten-3-color
+
+
+
+.div-nine-pagetitle
+    background-color: $brown-lighten-4-color
+    padding 5px 0px
+
+.nine-pagetitle
+    color: $brown-darken-1-color
+
+.illustration
+    height: 250px
+    
+    img
+        @media screen and (max-width: $break-large)
+            max-width: 1920px
+            width: 100%
+        @media screen and (max-width: $break-medium)
+            width: 820px !important
+        @media screen and (max-width: $break-small)
+            width: 820px !important
+        @media screen and (max-width: $break-xsmall)
+            width: 520px !important
+
+footer 
+    .material-tooltip
+        margin-top: -60px
+
+#mod_mentions 
+    p
+        text-align: justify
+        font-size: 0.9em
+    h3
+        margin: 30px 0 10px !important
+        font-size: 1.2em
+    
+.backdrop
+    margin-top: -60px
+    background-color: $light-green-darken-1-color
+
+.bordered-brown
+    border-left: 3px solid $brown-lighten-4-color
+
+footer .bordered-brown-thin
+    border-left: 1px solid $brown-lighten-5-color
+    margin-top: 20px
+    @media screen and (max-width: $break-small)
+        border-left: 0
+        margin-top: 0px
+footer .social
+    text-align: right
+    margin-top: 20px
+    @media screen and (max-width: $break-small)
+        text-align: left
+        margin-top: 0px
+    
+    h4
+        @media screen and (max-width: $break-small)
+            margin-left: 20px
+    
+footer .tooltiped
+    margin-right: 20px
+    float: right
+    border: 1px solid red
+    @media screen and (max-width: $break-small)
+        margin-left: 20px
+        float: left
+
+.header-type 
+    font-size: 2em !important
+    text-align: center
+    margin-top: 0
+    padding: 10px 0
+
+
+/* Page d'accueil *************************************************************************** */
+
+$purple-experience-color: #8E44AD
+$yellow-competences-color: #F1BB13
+$blue-interets-color: #3B83CB
+
+#ninehome
+    color: $brown-darken-3-color
+    font-size: 2em !important
+    line-height: normal
+    border: 1px solid $brown-lighten-5-color
+    border-radius: 6px
+    background-color: rgba(215, 204, 200, .4)
+    margin-top: 200px !important
+    
+    @media screen and (max-width: $break-large)
+        margin-top: 200px !important
+    @media screen and (max-width: $break-medium)
+        margin-top: 100px !important
+    @media screen and (max-width: $break-small)
+        margin-top: 100px !important
+    @media screen and (max-width: $break-xsmall)
+        margin-top: 60px !important  
+    
+#presentation 
+    .experience
+        background-color: $grey-lighten-4-color
+        border-bottom: 3px solid $purple-experience-color
+        
+    .competences
+        background-color: $grey-lighten-4-color
+        border-bottom: 3px solid $yellow-competences-color
+        
+    .interets
+        background-color: $grey-lighten-4-color
+        border-bottom: 3px solid $blue-interets-color
+        
+    .btn-flat:hover
+        background-color: $brown-lighten-3-color
+        color: $brown-lighten-5-color
+
+#homepage
+    cursor: pointer
+
+    
+/* Formulaire de contact ******************************************************************** */
+
+.input-field 
+    /* label focus color */
+    input[type=text]:focus + label,
+    input[type=email]:focus + label,
+    textarea:focus + label
+        font-size: 1em
+        color: $light-green-darken-1-color !important
+
+    /* label underline focus color */
+    input[type=text]:focus,
+    input[type=email]:focus,
+    input[type=text].valid,
+    input[type=email].valid
+        border-bottom: 1px solid $light-green-darken-1-color !important
+        box-shadow: 0 1px 0 0 $light-green-darken-1-color !important
+
+    .prefix.active
+        color: $light-green-darken-1-color !important
+
+    .prefix.active ~ input[type=text],
+    .prefix.active ~ input[type=email]
+        border-bottom: 1px solid $light-green-darken-1-color !important
+        box-shadow: 0 1px 0 0 $light-green-darken-1-color !important
+
+textarea + label
+    font-size: 0.8em !important
+    
+textarea:focus + label,
+textarea.valid + label,
+.materialize-textarea:focus + label
+    color: $light-green-darken-1-color !important
+
+textarea:focus,
+textarea.valid,
+.materialize-textarea:focus
+    border-bottom: 1px solid $light-green-darken-1-color !important
+    box-shadow: 0 1px 0 0 $light-green-darken-1-color !important
+
+
+/* Invalid fields */
+.input-field input[type=text].invalid,
+.input-field input[type=email].invalid,
+textarea.invalid
+    border-bottom: 1px solid $red-darken-3-color !important
+    box-shadow: 0 1px 0 0 $red-darken-3-color !important
+
+
+.input-field input[type=text].invalid + label,
+.input-field input[type=email].invalid + label,
+.input-field textarea.invalid + label,
+.error,
+.input-field input[type=text].invalid + label::after,
+.input-field input[type=email].invalid + label::after,
+.input-field textarea.invalid + label::after,
+.error::after
+    color: $red-darken-3-color !important
+
+.input-field textarea.invalid + label::after
+    -webkit-transform: translateY(16px) !important
+    transform: translateY(16px) !important
+
+
+
+/** Timeline format ************************************************** **/
+
+.timeline-item
+    margin-bottom: 30px
+    position: relative
+    @media screen and (min-width: $break-medium) 
+        margin-bottom: 50px
+        margin-left: 30px
+        position: relative
+    
+.timeline .container
+    @media screen and (min-width: $break-medium)
+        border-left: 4px solid $brown-lighten-4-color
+        
+.timeline-item:after 
+    @media screen and (min-width: $break-medium)
+        right: 100%
+        top: 80px
+        border: solid transparent
+        content: " "
+        height: 0
+        width: 0
+        position: absolute
+        pointer-events: none
+        border-color: rgba(245, 245, 245, 0)
+        border-right-color: $grey-lighten-3-color
+        border-width: 20px
+        margin-top: -20px
+    
+.timeline-content
+    padding: 10px 20px
+    border-radius: 4px
+    background: $grey-lighten-3-color
+    box-shadow: 0 20px 25px -15px rgba(0, 0, 0, 0.3)
+    @media screen and (min-width: $break-medium)
+        padding: 10px 30px
+        border-radius: 4px
+        background: $grey-lighten-3-color
+        box-shadow: 0 20px 25px -15px rgba(0, 0, 0, 0.3)
+        
+.timeline-img 
+    @media screen and (min-width: $break-medium)
+        width: 20px
+        height: 20px
+        background: $light-green-color
+        border-radius: 50%
+        position: absolute
+        margin-top: 70px
+        margin-left: -42px
+    
+.date
+    background: #a1887f
+    display: inline-block
+    color: #FFFFFF
+    padding: 10px 30px
+    top: 0
+    right: 0
+    border-top-left-radius: 6px
+    border-top-right-radius: 6px
+
+
+/* Page Experiences ************************************************************************* */
+
+$mutualite-color: #96BD0C
+$allegorithmic-color: #00BCF2
+$actifdesign-color: #B31B20
+$periscope-color: #28C8E1
+$limos-color: #5A75C1
+
+a.company_url
+    text-decoration: underline
+
+.missions li i
+    margin-top: 4px
+
+.skill 
+    margin-bottom: 20px
+
+
+.mutualite 
+    .timeline-img 
+        background: $mutualite-color
+    
+    .date
+        border-bottom: 2px solid $mutualite-color
+    
+    .timeline-content
+        border-bottom: 4px solid $mutualite-color
+
+.allegorithmic 
+    .timeline-img 
+        background: $allegorithmic-color
+    
+    .date
+        border-bottom: 2px solid $allegorithmic-color
+    
+    .timeline-content
+        border-bottom: 4px solid $allegorithmic-color
+
+.actifdesign 
+    .timeline-img 
+        background: $actifdesign-color
+    
+    .date
+        border-bottom: 2px solid $actifdesign-color
+    
+    .timeline-content
+        border-bottom: 4px solid $actifdesign-color
+
+.periscope 
+    .timeline-img 
+        background: $periscope-color
+    
+    .date
+        border-bottom: 2px solid $periscope-color
+    
+    .timeline-content
+        border-bottom: 4px solid $periscope-color
+
+.limos 
+    .timeline-img 
+        background: $limos-color
+    
+    .date
+        border-bottom: 2px solid $limos-color
+    
+    .timeline-content
+        border-bottom: 4px solid $limos-color
+
+
+/* Page Compétences ************************************************************************* */
+
+#backend,
+#frontend,
+#graphisme,
+#systemes-administration,
+#langages
+    .card
+        background-color: $brown-lighten-5-color !important
+        
+        .card-content
+            padding: 0 !important
+
+#backend 
+    .header-type
+        color: #7e57c2 !important
+        border-top: 0
+        border-bottom: 3px solid #b39ddb !important
+
+    .bordered
+        border-left: 3px solid #d1c4e9 !important
+
+#frontend 
+    .header-type
+        color: #ffa726 !important
+        border-top: 0
+        border-bottom: 3px solid #ffcc80 !important
+
+    .bordered
+        border-left: 3px solid #ffe0b2 !important
+
+
+#graphisme 
+    .header-type
+        color: #ec407a !important
+        border-top: 0
+        border-bottom: 3px solid #f48fb1 !important
+
+    .bordered
+        border-left: 3px solid #f8bbd0 !important
+
+
+#systemes-administration 
+    .header-type
+        color: #8bc34a !important
+        border-top: 0
+        border-bottom: 3px solid #c5e1a5 !important
+    
+    .bordered
+        border-left: 3px solid #dcedc8 !important
+
+
+#langages 
+    .header-type
+        color: #26c6da !important
+        border-top: 0
+        border-bottom: 3px solid #80deea !important
+
+    .bordered
+        border-left: 3px solid #80deea !important
+
+
+
+/* Page Formations ************************************************************************** */
+
+$pole-vichy-color: #DC911A
+$ubp-color: #005F80
+$univ-orleans-color: #01A769
+
+.pole-ubp-vichy 
+    .timeline-img
+        background: $pole-vichy-color
+
+    .date
+        border-bottom: 2px solid $pole-vichy-color
+
+    .timeline-content
+        border-bottom: 4px solid $pole-vichy-color
+
+.ubp
+    .timeline-img
+        background: $ubp-color
+
+    .date
+        border-bottom: 2px solid $ubp-color
+
+    .timeline-content
+        border-bottom: 4px solid $ubp-color
+
+.univ-orleans
+    .timeline-img
+        background: $univ-orleans-color
+
+    .date
+        border-bottom: 2px solid $univ-orleans-color
+
+    .timeline-content
+        border-bottom: 4px solid $univ-orleans-color
+
+
+
+/* Page Projets ***************************************************************************** */
+
+.screenshot
+    width: 200px
+    margin: 10px auto
+
+$nine-color: #58585A
+$ttc-color: #F4AC2C
+$randos-color: #7D95BA
+$nevoprint-color: #007BC3
+$nevotec-color: #82AC36
+$stagemaitrise-color: #005F80
+
+.nine
+    .timeline-img
+        background: $nine-color
+
+    .date
+        border-bottom: 2px solid $nine-color
+
+    .timeline-content
+        border-bottom: 4px solid $nine-color
+
+.ttc
+    .timeline-img
+        background: $ttc-color
+
+    .date
+        border-bottom: 2px solid $ttc-color
+
+    .timeline-content
+        border-bottom: 4px solid $ttc-color
+
+.randos
+    .timeline-img
+        background: $randos-color
+
+    .date
+        border-bottom: 2px solid $randos-color
+
+    .timeline-content
+        border-bottom: 4px solid $randos-color
+
+.nevoprint
+    .timeline-img
+        background: $nevoprint-color
+
+    .date
+        border-bottom: 2px solid $nevoprint-color
+
+    .timeline-content
+        border-bottom: 4px solid $nevoprint-color
+
+.nevotec
+    .timeline-img
+        background: $nevotec-color
+
+    .date
+        border-bottom: 2px solid $nevotec-color
+
+    .timeline-content
+        border-bottom: 4px solid $nevotec-color
+
+.stagemaitrise
+    .timeline-img
+        background: $stagemaitrise-color
+
+    .date
+        border-bottom: 2px solid $stagemaitrise-color
+
+    .timeline-content
+        border-bottom: 4px solid $stagemaitrise-color
+
+
+/* Page Créations *************************************************************************** */
+
+#argile-mat,
+#argile-cire,
+#argile-peint,
+#argile-vernis,
+#argile-tour
+    .card
+        background-color: $brown-lighten-5-color !important
+        
+        .card-content
+            padding: 0 !important
+
+#argile-mat 
+    .header-type
+        color: #e64a19 !important
+        border-top: 0
+        border-bottom: 3px solid #ff8a65 !important
+    
+    .bordered
+        border-bottom: 3px solid #ff8a65 !important
+
+#argile-cire 
+    .header-type
+        color: #5c6bc0 !important
+        border-top: 0
+        border-bottom: 3px solid #7986cb !important
+
+    .bordered
+        border-bottom: 3px solid #7986cb !important
+
+#argile-peint 
+    .header-type
+        color: #00bcd4 !important
+        border-top: 0
+        border-bottom: 3px solid #80deea !important
+
+    .bordered
+        border-bottom: 3px solid #80deea !important
+
+#argile-vernis
+    .header-type
+        color: #ffb300 !important
+        border-top: 0
+        border-bottom: 3px solid #ffd54f !important
+
+    .bordered
+        border-bottom: 3px solid #ffd54f !important
+
+#argile-tour 
+    .header-type
+        color: #ab47bc !important
+        border-top: 0
+        border-bottom: 3px solid #ce93d8 !important
+
+    .bordered
+        border-bottom: 3px solid #ce93d8 !important
+
+
+
+/* Page Photos ****************************************************************************** */
+
+#sky,
+#night,
+#nature,
+#city,
+#other
+    .card
+        background-color: $brown-lighten-5-color !important
+        
+        .card-content
+            padding: 0 !important
+
+#sky 
+    .header-type
+        color: #42a5f5 !important
+        border-top: 0
+        border-bottom: 3px solid #90caf9 !important
+
+    .bordered
+        border-bottom: 3px solid #90caf9 !important
+
+#night 
+    .header-type
+        color: #757575 !important
+        border-top: 0
+        border-bottom: 3px solid #bdbdbd !important
+
+    .bordered
+        border-bottom: 3px solid #bdbdbd !important
+
+#nature 
+    .header-type
+        color: $light-green-darken-1-color
+        border-top: 0
+        border-bottom: 3px solid #c5e1a5 !important
+ 
+    .bordered
+        border-bottom: 3px solid #c5e1a5 !important
+
+#city 
+    .header-type
+        color: #d32f2f !important
+        border-top: 0
+        border-bottom: 3px solid #ef9a9a !important
+
+    .bordered
+        border-bottom: 3px solid #ef9a9a !important
+
+#other 
+    .header-type
+        color: #ffa000 !important
+        border-top: 0
+        border-bottom: 3px solid #ffd54f !important
+
+    .bordered
+        border-bottom: 3px solid #ffd54f !important

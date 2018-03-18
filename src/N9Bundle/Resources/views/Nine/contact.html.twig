@@ -1,0 +1,85 @@
+<div class="row">
+
+    <div class="waiting col s12 m12 l12 center-align mt3 pt3">
+        <div class="preloader-wrapper big active">
+            <div class="spinner-layer spinner-yellow-only">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div>
+                <div class="gap-patch">
+                    <div class="circle"></div>
+                </div>
+                <div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
+            </div>
+        </div>
+        <div class="mt2 brown-text text-lighten-2">
+            Traitement en cours...
+        </div>
+    </div>
+
+    <div class="alert card">
+        <div class="card-content center-align">
+        </div>
+    </div>
+
+    {{ form_start(form, {'attr': {'class': 'col s12 right-alert'}}) }}
+    {{ form_errors(form) }}
+
+        <div class="row">
+            <div class="input-field col s12 m6">
+                <i class="material-icons prefix brown-text text-lighten-2">person</i>
+                {{ form_widget(form.firstname) }}
+                {{ form_label(form.firstname) }}
+                {{ form_errors(form.firstname) }}
+            </div>
+            <div class="input-field col s12 m6">
+                <i class="material-icons prefix brown-text text-lighten-2">perm_identity</i>
+                {{ form_widget(form.lastname) }}
+                {{ form_label(form.lastname) }}
+                {{ form_errors(form.lastname) }}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix brown-text text-lighten-2">mail_outline</i>
+                {{ form_widget(form.email) }}
+                {{ form_label(form.email) }}
+                {{ form_errors(form.email) }}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix brown-text text-lighten-2">mode_edit</i>
+                {{ form_widget(form.subject) }}
+                {{ form_label(form.subject) }}
+                {{ form_errors(form.subject) }}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix brown-text text-lighten-2">sms</i>
+                {{ form_widget(form.message) }}
+                {{ form_label(form.message) }}
+                {{ form_errors(form.message) }}
+            </div>
+        </div>
+
+        {# Render CSRF token etc .#}
+        <div style="display:none">
+            {{ form_rest(form) }}
+        </div>
+
+        <div class="center-align">
+            <button class="btn waves-effect btn-flat" id="btn_send" type="submit" name="action">Envoyer
+                <i class="material-icons right">send</i>
+            </button>
+        </div>
+
+    {{ form_end(form) }}
+
+</div>

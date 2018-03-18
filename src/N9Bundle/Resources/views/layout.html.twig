@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        
+        <title>{% block title %}Caroline Noyer{% endblock %}</title>
+        
+        <meta name="description" content="Développeur web full-stack expérimentée, rigoureuse et polyvalente à l'oeuvre depuis 2006">
+        <meta name="keywords" content="CV Développeur,Développeur web full-stack,PHP,Symfont,HTML,CSS,XML,JavaScript">
+        <meta name="author" content="Caroline Noyer">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="index,follow">
+        
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+        <link rel="icon" href="favicon.png" type="image/png">
+        
+        {# Import Google Icon Font #}
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="{{ asset('build/global.css') }}">
+        
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    </head>
+    
+    <body>
+        {% set activePage = '' %}
+        {% if app.request.get('page') is defined %}
+            {% set activePage = app.request.get('page') %}
+        {% endif %}
+        
+        {% set effects = ['rollIn', 'bounceIn', 'rotateIn', 'rubberBand', 'bounceInDown', 'bounceInRight', 'bounceInLeft', 'bounceInUp', 'fadeInDownBig', 'fadeInLeftBig', 'fadeInUpBig', 'fadeInRightBig', 'zoomInUp', 'zoomInLeft', 'zoomInDown', 'zoomInUp'] %}
+        
+        {% set divider = '<div class="divider"></div>' %}
+        
+        <header>
+            {{ render(controller("N9Bundle:Nine:menu", {'page':activePage})) }}
+        </header>
+
+{#<br>#}
+        <main>
+            {% if activePage != "index" and activePage != "" %}
+                <div class="parallax-container illustration">
+                    <div class="parallax"><img src="{{basePath}}/img/main/{{activePage}}.jpeg"></div>
+                </div>
+                <div class="div-nine-pagetitle">
+                    <div class="row container valign-wrapper mb0 pb0">
+                        <div class="nine-pagetitle col s10 m10 l10 pl0">
+                            <h1 class="animated lightSpeedIn mt1 mb5">{% block pagetitle %}{% endblock %}</h1>
+                        </div>
+                        <div class="col s2 m2 l2 right-align pr0">
+                            <div class="{#animated bounceInUp#}">
+                                <a href="{{absolute_url(app.request.baseUrl)}}" class="hvr-float-shadow tooltipped" data-position="left" data-delay="50" data-tooltip="Page d'accueil - Présentation"><img src="{{basePath}}/img/main/cnoyer-mini.jpg" alt="Caroline Noyer • Développeur Web Full-stack" class="circle responsive-img z-depth-1 hvr-float-shadow" width="50px" id="homepage"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% else %}
+                <div class="parallax-container">
+                    <div class="row">
+                        <div id="ninehome" class="col s9 m7 l5 offset-s2 offset-m4 offset-l6">
+                            <p class="pa1 ma1">Développeur web full-stack expérimentée, rigoureuse et polyvalente</p>
+                        </div>
+                    </div>
+                    <div class="parallax">
+                        <img src="{{basePath}}/img/main/webdevelopper.jpeg" alt="Caroline Noyer • Développeur web full-stack">
+                    </div>
+                </div>
+            {% endif %}
+            
+            
+            {% block body %}
+                {# Contenu de la page généré #}
+            {% endblock %}
+            
+            {% include 'N9Bundle:Nine:mentions.html.twig' %}
+        </main>
+        
+        <footer class="nine-page-footer">
+            {{ render(controller("N9Bundle:Nine:footer")) }}
+        </footer>
+        
+        
+        <script src="{{ asset('build/app.js') }}"></script>
+        
+        <script>
+           (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-35928055-1', 'auto');
+            ga('send', 'pageview');
+        </script>
+        
+    </body>
+</html>
