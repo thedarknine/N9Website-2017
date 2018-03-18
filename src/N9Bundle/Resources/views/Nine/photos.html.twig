@@ -1,0 +1,41 @@
+{% extends "N9Bundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} | Mes photos{% endblock %}
+
+{% block pagetitle %}Mes photos{% endblock %}
+
+{% block body %}
+    
+    {% for type in listPhotoTypes %}
+        {{divider|raw}}
+
+        {% set first = false %}
+        {% set animClass = "not-animated" %}
+        {% if loop.first %}
+            {% set first = true %}
+            {% set animClass = "animated" %}
+        {% endif %}
+
+        <div class="section {% if loop.index is odd %}even{% else %}odd{% endif %}" id="{{type.label}}">
+            <div class="container row" id="div_{{type.label}}">
+                {#<i class="material-icons right">perm_media</i>#}
+                <div class="card mb3">
+                    <div class="card-content center-align pa0">
+                        <h2 class="header-type ma0">{{type.name}}</h2>
+                    </div>
+                </div>
+
+                {% set listItemsPhotos = listPhotos[type.label] %}
+                {% for photo in listItemsPhotos %}
+                    <div class="ma0 pa0">
+                        {% if first == true %}{% set effectFirst = random(effects) %}{% endif %}
+                        <div class="col s6 m4 l3 xl3 center-align mb2 {{animClass}} {% if first == true %}{{effectFirst}}{% endif %}" data-effect="{% if first == true %}{{effectFirst}}{% else %}{{random(effects)}}{% endif %}" {% if first == false %}style="opacity:0"{% endif %}>
+                            <img src="{{basePath}}/img/photos/{{type.label}}/{{photo}}" alt="" class="z-depth-1 responsive-img materialboxed thumbnail bordered">
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% endfor %}
+    
+{% endblock %}

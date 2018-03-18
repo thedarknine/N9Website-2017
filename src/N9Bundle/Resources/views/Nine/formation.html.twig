@@ -1,0 +1,52 @@
+{% extends "N9Bundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} | Formation{% endblock %}
+
+{% block pagetitle %}Formation universitaire{% endblock %}
+
+{% block body %}
+    
+    {{divider|raw}}
+    
+    <section class="timeline pt3 pb3 even">
+        <div class="container">
+            {% for education in listEducations %}
+
+                {% set first = false %}
+                {% set animHeader = "not-animated" %}
+                {% set animClass = "not-animated" %}
+                {% if loop.first %}
+                    {% set first = true %}
+                    {% set animHeader = "animated bounceInRight" %}
+                    {% set animClass = "animated" %}
+                {% endif %}
+
+                <div class="timeline-item {{education.school.label}} {{animClass}} {% if first == true %}zoomInUp{% endif %}" data-effect="zoomInUp" id="{{education.label}}">
+                    <div class="timeline-img"></div>
+                    <div class="date">{{education.year}}</div>
+                    <div class="timeline-content timeline-card odd">
+                        <div class="right">
+                            <img src="{{basePath}}/img/school/{{education.school.label}}.png" alt="{{education.school.name}}" width="100px" class="">
+                        </div>
+                        <h5 class="left-align pb1 valign-wrapper">{#<i class="material-icons">new_releases</i>&nbsp;#}{{education.title}}</h5>
+                        <div>
+                            <p class="mt0 mb5"><strong class="text-12">{{education.details}}</strong></p>
+                            <p class="mt0">
+                                Option : <b>{{education.speciality}}</b>
+                                <br>
+                                {% if education.mention is not empty %}
+                                    Mention : <b>{{education.mention}}</b>
+                                    <br>
+                                {% endif %}
+                            </p>
+                            <p class="brown-text text-lighten-2 mb0 pb1">
+                                {{education.school.name}} - <em>{{education.school.city}} ({{education.school.department}})</em>
+                            </p>
+                        </div>
+                    </div>
+                </div>  
+            {% endfor %}
+        </div>
+    </section>
+    
+{% endblock %}
