@@ -1,0 +1,68 @@
+{% extends "N9Bundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} | Compétences{% endblock %}
+
+{% block pagetitle %}Compétences acquises{% endblock %}
+
+{% block body %}
+    
+    {% for type in listSkillTypes %}
+        {{divider|raw}}
+
+        {% set first = false %}
+        {% set animHeader = "not-animated" %}
+        {% set animClass = "not-animated" %}
+        {% if loop.first %}
+            {% set first = true %}
+            {% set animHeader = "animated bounceInRight" %}
+            {% set animClass = "animated" %}
+        {% endif %}
+
+        <div class="section {% if loop.index is odd %}even{% else %}odd{% endif %}" id="{{type.label}}">
+            <div class="container">
+               {# <i class="material-icons right">assessment</i>#}
+                <div class="card mb3">
+                    <div class="card-content center-align pa0">
+                        <h2 class="header-type ma0">{{type.name}}</h2>
+                    </div>
+                </div>
+
+                <div class="row mt2 pl2">
+                    {% set skills = listSkills[type.label] %}
+                    {% for skill in skills %}
+                        <div class="col s12 m6 l4 mt1 mb2 bordered pl2 ">
+                            <p class="mt0 mb5"><strong class="text-12 truncate">{{skill.name|raw}}</strong></p>
+                            <div class="clearfix">
+                                <div class="left {{animClass}} {% if first == true %}{{random(effects)}}{% endif %}" data-effect="{{random(effects)}}">
+                                    <img src="{{basePath}}/img/skill/{{skill.label}}.png" alt="{{skill.label}}" width="70px">
+                                </div>
+                                <div class="left ml1">
+                                    <p class="mb5">
+                                        {% if skill.duration is not empty %}
+                                            Expérience : {{skill.duration}}
+                                        {% else %}
+                                            <em>En cours de formation</em>
+                                        {% endif %}
+                                    </p>
+                                    <p class="mt0 ml0 pb1">
+                                        {% set level = 0 %}
+                                        {% for i in 1..skill.level %}
+                                            <i class="tiny material-icons light-green-text level level-{{i}} {{animClass}} {% if first == true %}bounceInNine{% endif %}" data-effect="bounceInNine">grade</i>
+                                            {% set level = i+1 %}
+                                        {% endfor %}
+                                        {% if level != 6 %}
+                                            {% for i in level..5 %}
+                                                <i class="tiny material-icons brown-text text-lighten-4 level level-{{i}} {{animClass}} {% if first == true %}bounceInU{% endif %}" data-effect="bounceIn">grade</i>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    
+{% endblock %}

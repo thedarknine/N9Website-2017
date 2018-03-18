@@ -1,0 +1,64 @@
+{% extends "N9Bundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} | Projets{% endblock %}
+
+{% block pagetitle %}Projets réalisés{% endblock %}
+
+{% block body %}
+    
+    {{divider|raw}}
+    
+    <section class="timeline pt3 pb3 even">
+        <div class="container">
+            {% for project in listProjects %}
+                <div id="{{project.label}}"></div>
+
+                {% set first = false %}
+                {% set animHeader = "not-animated" %}
+                {% set animClass = "not-animated" %}
+                {% if loop.first %}
+                    {% set first = true %}
+                    {% set animHeader = "animated bounceInRight" %}
+                    {% set animClass = "animated" %}
+                {% endif %}
+
+                <div class="timeline-item {{project.label}} {{animClass}} {% if first == true %}zoomInUp{% endif %}" data-effect="zoomInUp">
+                    <div class="timeline-img"></div>
+                    <div class="date">{{project.period}}</div>
+                    <div class="timeline-content timeline-card odd">
+                        <div class="right">
+                            <img src="{{basePath}}/img/project/{{project.label}}.png" alt="{{project.name}}" width="80px" class="">
+                        </div>
+                        <h5 class="left-align pb1 valign-wrapper">{#<i class="material-icons">assignment</i>&nbsp;#}{{project.name}}</h5>
+
+                        <div class="brown-text text-darken-3 resume pb1">
+                            {{project.description|raw}}
+
+                            {% if project.file is not empty %}
+                                <p class="center-align pt2"><a class="btn btn-flat btn-nine waves-effect waves-light hvr-grow-shadow" href="http://docs.carolinenoyer.info/pdf/{{project.file}}" title="Rapport de stage"><i class="material-icons left">attach_file</i> Rapport de stage</a></p>
+                            {% endif %}
+                        </div>
+
+                        {% if project.screenshot is not empty %}
+                            {% if project.screenshot is iterable %}
+                                <div class="row pt2 pb2">
+                                    {% for screenshot in project.screenshot %}
+                                        <div class="col s12 m4 l4 center-align">
+                                            <img class="materialboxed z-depth-2 screenshot" src="{{basePath}}/img/project/{{screenshot}}">
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                <div class="center-align pt2 pb2">
+                                    <img class="materialboxed z-depth-2 screenshot" src="{{basePath}}/img/project/{{project.screenshot}}">
+                                </div>
+                            {% endif %}
+
+                        {% endif %}
+                    </div>
+                </div>  
+            {% endfor %}
+        </div>
+    </section>
+    
+{% endblock %}

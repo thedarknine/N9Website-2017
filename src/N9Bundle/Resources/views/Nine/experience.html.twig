@@ -1,0 +1,76 @@
+{% extends "N9Bundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} | Expérience{% endblock %}
+
+{% block pagetitle %}Expériences professionnelles{% endblock %}
+
+{% block body %}
+    
+    {{divider|raw}}
+    
+    <section class="timeline pt3 pb3 even">
+        <div class="container">
+            
+            {% for experience in listExperiences %}
+
+                {% set first = false %}
+                {% set animHeader = "not-animated" %}
+                {% set animClass = "not-animated" %}
+                {% if loop.first %}
+                    {% set first = true %}
+                    {% set animHeader = "animated bounceInRight" %}
+                    {% set animClass = "animated" %}
+                {% endif %}
+
+                <div class="timeline-item {{experience.company.label}} {{animClass}} {% if first == true %}zoomInUp{% endif %}" data-effect="zoomInUp" id="{{experience.label}}">
+                    <div class="timeline-img"></div>
+                    <div class="date">
+                        {% if experience.endDate is empty %}
+                            Depuis {{experience.startDate|localizeddate('none', 'none', null, null, 'MMMM Y')}}
+                        {% else %}
+                            De {{experience.startDate|localizeddate('none', 'none', null, null, 'MMMM Y')}} à {{experience.endDate|localizeddate('none', 'none', null, null, 'MMMM Y')}}
+                        {% endif %}
+                    </div>
+                    <div class="timeline-content timeline-card odd">
+                        <div class="right">
+                            <img src="{{basePath}}/img/company/{{experience.company.label}}.png" alt="{{experience.company.name}}" width="100px" class="mt1">
+                        </div>
+                        <h5 class="left-align pb1 valign-wrapper">{#<i class="material-icons">whatshot</i>&nbsp;#}{{experience.title}}</h5>
+                        <p class="brown-text text-lighten-2 mb0 pb0">
+                            {% if experience.company.url is not empty %}
+                                <a href="{{experience.company.url}}" class="brown-text text-lighten-2 company_url" target="_blank">{{experience.company.name}}</a>
+                            {% else %}
+                                {{experience.company.name}}
+                            {% endif %}
+                        </p>
+                        <p class="brown-text text-lighten-2 mt0 pt0">{{experience.company.city}} ({{experience.company.department}})</p>
+                        <p class="mt0 mb0 brown-text text-darken-3"><strong class="text-12">{{experience.subtitle}}</strong></p>
+
+                        <div class="brown-text text-darken-3">
+                            {{experience.description|raw}}
+                            
+                            {% if experience.skills is not empty %}
+                                <div class="technos pt5 mb1">
+                                    <p><strong class="brown-text text-lighten-2">Technologies utilisées</strong></p>
+                                    <div class="bordered-brown ml2 pl1">
+                                       {# <div class="row">
+                                        {% for skill in experience.skills %}
+                                                    <div class="col s4 m3 l2 mt1 mb1 center-align"><a href="{{absolute_url('competences')}}#{{skill.skillType.label}}" alt="{{skill.title|raw}}" class="tooltipped" data-position="right" data-delay="50" data-tooltip="{{skill.title}}"><img src="{{app.request.server.get("HTTP_REFERER")}}img/skill/'{{skill.label}}.png" class="responsive-img" alt="{{skill.title}}"></a></div>
+                                            {% endfor %}
+                                        </div>#}
+                                        {% for skill in experience.skills %}
+                                            <div class="chip mt5 mb5">
+                                                <img src="{{basePath}}/img/skill/{{skill.label}}.png" alt="{{skill.title}}">{{skill.title}}
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>  
+            {% endfor %}
+        </div>
+    </section>
+    
+{% endblock %}
