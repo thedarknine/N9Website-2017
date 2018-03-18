@@ -1,0 +1,91 @@
+{% extends "N9Bundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} | Présentation{% endblock %}
+
+{% block body %}
+    {{divider|raw}}
+    
+    <div class="section even">
+        <div class="container row mt1 animated zoomInRight">
+            <div class="col s12">
+                <h3 class="center-align light-green-text text-darken-3 text-lg">Développeur web à l'oeuvre depuis 2006</h3>
+                
+                <div class="center-align mb1"><img src="{{basePath}}/img/main/developper.png" alt="Caroline Noyer • Développeur web full-stack"></div>
+
+                <div class="justify-align mt2 mb1">Passionnée par cet environnement, j’ai enrichi au cours des divers projets que j'ai menés, mon expertise technique tout en élargissant mon éventail de compétences. Ceci me permet aujourd'hui de disposer de solides bases autant en <strong>Front-end</strong> qu'en <strong>Back-end</strong>.</div>
+                
+                <div class="justify-align mb1">Cet univers en constante évolution m'incite à découvrir et maîtriser régulièrement de nouvelles technologies. Dans le souci de produire des <strong>applications fiables et de qualité</strong>, j’attache une importance à respecter les standards et les normes actuelles. <strong>Rigoureuse</strong>, il me semble essentiel de présenter les outils les plus adaptés.</div>
+
+                <div class="justify-align mb1"><strong>Force de proposition et organisée</strong>, mon expérience dans les différentes équipes a développé ma capacité de communication ainsi que mon aptitude à analyser tant les besoins utilisateurs que les spécificités du domaine d’application. Mon parcours professionnel a affiné ma sensibilité visuelle que ce soit au niveau de l’aspect graphique ou de <strong>l’expérience utilisateur</strong>.</div>
+
+                <div class="justify-align mb1"><strong>Dynamique et motivée</strong> par l’envie d’évoluer, je prends plaisir à relever de nouveaux challenges me permettant de m'épanouir et ainsi de mettre en avant et de consolider mes connaissances.</div>
+                
+                <div class="center-align mt2">
+                    <a class="btn waves-effect btn-nine btn-flat hvr-grow-shadow" href="http://docs.carolinenoyer.info/pdf/cv-devwebfullstack.pdf" title="CV Caroline NOYER"><i class="material-icons left">attach_file</i>Téléchargez mon CV</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="section odd" id="presentation">
+        <div class="row container mt2 not-animated" data-effect="zoomInUp">
+            <div class="col s12 m4 l4">
+                <div class="card experience">
+                    <div class="card-content">
+                        <h2 class="card-title center-align mt0">Expérience</h2>
+                        <p class="center-align pt1 pb1"><img src="{{basePath}}/img/main/experience.png" alt="Expérience" class="responsive-img"></p>
+                        <p class="center-align">Passionnée de nouvelles technologies, dotée d'un profil expérimenté et polyvalent, je m'applique à analyser, développer, communiquer et proposer des solutions.</p>
+                        
+                        <div class="right-align mt1">
+                            <a href="{{absolute_url(app.request.baseUrl)}}experience" class="btn waves-effect btn-nine btn-flat valign-wrapper" title="Plus d'infos"><i class="material-icons">playlist_add</i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col s12 m4 l4">
+                <div class="card competences">
+                    <div class="card-content">
+                        <h2 class="card-title center-align mt0">Compétences</h2>
+                        <p class="center-align pt1 pb1"><img src="{{basePath}}/img/main/skills.png" alt="Compétences" class="responsive-img"></p>
+                        <p class="center-align">Dans un souci de qualité, évolutivité, fiabilité, je m'efforce de respecter les standards mis en place à travers des outils éprouvés et n'ai de cesse de suivre leur évolution.</p>
+                        
+                        <div class="right-align mt1">
+                            <a href="{{absolute_url(app.request.baseUrl)}}competences" class="btn waves-effect btn-nine btn-flat valign-wrapper" title="Plus d'infos"><i class="material-icons">playlist_add</i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col s12 m4 l4">
+                <div class="card interets">
+                    <div class="card-content">
+                        <h2 class="card-title center-align mt0">Centres d'intérêt</h2>
+                        <p class="center-align pt1 pb1"><img src="{{basePath}}/img/main/hobbies.png" alt="Centres d'intérêt" class="responsive-img"></p>
+                        <p class="center-align">Mon goût pour les métiers d'art et la matière m'a mené vers l'un de mes loisirs : le modelage d'argile. La randonnée, quant à elle, me permet de profiter de la richesse de l'Auvergne.</p>
+                        
+                        <div class="right-align mt1">
+                            <a href="{{absolute_url(app.request.baseUrl)}}creations" class="btn waves-effect btn-nine btn-flat valign-wrapper" title="Plus d'infos"><i class="material-icons">playlist_add</i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="section even">
+        <div class="row container mt3">
+            <div class="col s12 m3 l3 mt2">
+                <div>
+                    <img src="{{basePath}}/img/main/cnoyer.jpg" alt="" class="circle responsive-img z-depth-3"> 
+                </div>
+            </div>
+            <div class="col s12 m9 l9 mt1 not-animated scrollspy" data-effect="zoomInRight" id="contact">
+                <h4 class="mt0 mb3">Contactez-moi !</h4>
+                <div class="text-justify mb1 ml2" id="div_form_contact">
+                    {{render(controller("N9Bundle:Nine:contact"))}}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

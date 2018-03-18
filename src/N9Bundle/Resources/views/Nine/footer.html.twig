@@ -1,0 +1,41 @@
+<div class="divider grey lighten-1"></div>
+
+<div class="footer-copyright">
+    <div class="row mb0 pb2 pt1 brown-text text-lighten-2 text-sm">
+        <div class="col s12 m3 l3 left-align mt2 pl2">
+            <p class="ml2 mb0"><b>©Nine Copyright</b> 2006-{{"now"|date("Y")}}</p>
+            <p class="ml2 mt0">Propulsé par <a href="https://symfony.com/" target="_blank">Symfony3</a></p>
+        </div>
+        
+        <div class="col s12 m3 l3 left-align pl2 bordered-brown-thin">
+            <ul class="ml2">
+                {% for page in listPages %}
+                    {% if page.route is not empty %}
+                        <li><a href="{{absolute_url(page.route)}}" class="brown-text text-lighten-2">{{page.name}}</a> </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+        
+        <div class="col s12 m3 l3 left-align pl2 bordered-brown-thin">
+            <ul class="ml2">
+                <li><a href="{{absolute_url(app.request.baseUrl)}}">Accueil</a></li>
+                <li><a href="{{absolute_url(app.request.baseUrl)}}#contact">Me contacter</a></li>
+                <li><a href="https://docs.carolinenoyer.info/pdf/cv-devwebfullstack.pdf" title="CV Caroline Noyer • Développeur web full-stack" target="_blank">Mon CV au format PDF</a></li>
+                <li><a href="" class="modal-trigger" data-target="mod_mentions">Mentions légales</a></li>
+            </ul>
+        </div>
+        
+        <div class="col s12 m3 l3 social">
+            <div class="mr2">
+                <h4 class="text-md">Suivez-moi !</h4>
+                {% for link in listLinks %}
+                    <div class="right ml2 mt1 mr0 mb0 tooltipped" data-position="left" data-delay="50" data-tooltip="{{link.tooltip}}">
+                        <a href="{{link.url}}" class="hvr-float-shadow" target="_blank"><img src="{{basePath}}/img/main/{{link.label}}.png" alt="{{link.title}}" class="circle responsive-img z-depth-1" width="40"></a>
+                    </div>
+                    {% endfor %}
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>

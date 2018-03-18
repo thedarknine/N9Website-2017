@@ -1,0 +1,11 @@
+n9_contact:
+    path:     /send
+    defaults: { _controller: N9Bundle:Nine:send }
+    
+n9_homepage:
+    path:     /
+    defaults: { _controller: N9Bundle:Nine:index }
+
+n9_page:
+    path:     /{page}
+    defaults: { _controller: N9Bundle:Nine:page }
