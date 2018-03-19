@@ -64,6 +64,13 @@ class NineController extends Controller
             'name'  => "Photos",
             'icon'  => "perm_media",
         ),
+        'arcade' => array (
+            'label' => "arcade",
+            'route' => "arcade",
+            'title' => "Nine Arcade Adventure",
+            'name'  => "Arcade",
+            'icon'  => "gradient",
+        ),
     );
     
     private $listLinks = array(
@@ -84,6 +91,12 @@ class NineController extends Controller
             'url'       => "http://www.doyoubuzz.com/caroline-noyer",
             'title'     => "Profil DoYouBuzz",
             'tooltip'   => "Mon profil DoYouBuzz",
+        ),
+        'github' => array (
+            'label'     => "github",
+            'url'       => "https://github.com/thedarknine",
+            'title'     => "GitHub",
+            'tooltip'   => "Mon GitHub",
         ),
        /* 'cv' => array (
             'label'     => "cv-pdf",
